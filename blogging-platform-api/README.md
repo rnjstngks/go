@@ -18,21 +18,32 @@ go build -o crud-api
 
 **3. 동작 방법**
 
-환경 변수 입력
+crud-api 실행
 ```sh
-export WEATHER_API_KEY=<API_KEY 입력>
-```
-
-redis 설치
-```sh
-apt install -y redis
-```
-
-바이너리 파일 실행
-```sh
-./weather-api
+./crud-api
 ```
 
 인터넷 브라우저 열고 난 후
+-----------------------------
+모든 게시물 조회
+localhost:8000/posts
 
-localhost:8080/weather?city=<원하는 도시 명 입력>
+특정 게시물 조회
+localhost:8000/posts/{id}
+-----------------------------
+curl 명령어를 사용하여 게시물 생성, 업데이트, 삭제
+
+게시물 생성
+curl -X PUT http://localhost:8000/posts -H "Content-Type: application/json" -d '{
+  "title": "새 게시물 제목",
+  "content": "새 게시물 내용"
+}'
+
+게시물 업데이트
+curl -X POST http://localhost:8000/posts/{id} -H "Content-Type: application/json" -d '{
+  "title": "수정된 게시물 제목",
+  "content": "수정된 게시물 내용"
+}'
+
+게시물 삭제
+curl -X DELETE http://localhost:8000/posts/{id}

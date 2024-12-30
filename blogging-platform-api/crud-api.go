@@ -93,8 +93,8 @@ func main() {
 	// 각 API 경로와 핸들러 함수 연결
 	r.HandleFunc("/posts", getPosts).Methods("GET")           // 모든 게시물 조회
 	r.HandleFunc("/posts/{id}", getPost).Methods("GET")       // 특정 게시물 조회
-	r.HandleFunc("/posts", createPost).Methods("POST")        // 게시물 생성
-	r.HandleFunc("/posts/{id}", updatePost).Methods("PUT")    // 게시물 업데이트
+	r.HandleFunc("/posts", createPost).Methods("PUT")         // 게시물 생성
+	r.HandleFunc("/posts/{id}", updatePost).Methods("POST")   // 게시물 업데이트
 	r.HandleFunc("/posts/{id}", deletePost).Methods("DELETE") // 게시물 삭제
 
 	http.ListenAndServe(":8000", r) // HTTP 서버 시작 (포트 8000에서 대기)

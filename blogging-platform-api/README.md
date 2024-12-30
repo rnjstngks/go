@@ -34,16 +34,21 @@ localhost:8000/posts/{id}
 curl 명령어를 사용하여 게시물 생성, 업데이트, 삭제
 
 게시물 생성
+```sh
 curl -X PUT http://localhost:8000/posts -H "Content-Type: application/json" -d '{
   "title": "새 게시물 제목",
   "content": "새 게시물 내용"
 }'
+```
 
 게시물 업데이트
+```sh
 curl -X POST http://localhost:8000/posts/{id} -H "Content-Type: application/json" -d '{
   "title": "수정된 게시물 제목",
   "content": "수정된 게시물 내용"
 }'
-
+```
 게시물 삭제
+```sh
 curl -X DELETE http://localhost:8000/posts/{id}
+```
